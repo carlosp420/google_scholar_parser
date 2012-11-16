@@ -1,0 +1,16 @@
+http://www.scielo.br/scielo.php?pid=S1519-566X2007000600014&script=sci_arttext
+http://onlinelibrary.wiley.com/doi/10.1111/j.1463-6409.2010.00421.x/full
+http://www.mapress.com/zootaxa/2007f/zt01652p040.pdf
+http://www.scielo.org.co/pdf/rcen/v35n2/v35n2a21.pdf
+http://www.scielo.br/scielo.php?pid=S1519-566X2011000200012&script=sci_arttext&tlng=es
+http://www.scielo.br/scielo.php?pid=S1519-566X2010000100011&script=sci_arttext
+http://cebioperu.org/files/publications/Pulido_et_al_2011.pdf
+http://www.scielo.br/scielo.php?pid=S1519-566X2008000200010&script=sci_arttext
+http://mail.zoologi.su.se/research/nylin/Pena10.pdf
+http://www.sciencedirect.com/science/article/pii/S1055790312003624
+http://www.springerlink.com/index/Y5H445147875827P.pdf
+http://www.scielo.org.co/scielo.php?pid=S0120-04882009000200021&script=sci_arttext&tlng=en
+http://www.scielo.org.co/scielo.php?pid=S0123-30682007000100017&script=sci_arttext&tlng=pt
+http://www.scielo.org.co/scielo.php?pid=S0123-30682007000100017&script=sci_arttext
+/scholar?q=related:A6xZhUctVy0J:scholar.google.com/&hl=en&num=100&as_sdt=0,5&sciodt=0,5
+http://www.bdigital.unal.edu.co/3625/
