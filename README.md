@@ -8,7 +8,7 @@ Using [scholar.py](http://www.icir.org/christian/scholar.html) by [Christian Kre
 Get citations for a publication using its DOI:  
 `python scholar.py -c 1 10.1111/j.1096-3642.2009.00627.x`
 
-Ouput:   
+Output:   
         ` Title The radiation of Satyrini butterflies (Nymphalidae: Satyrinae): a challenge for phylogenetic methods`  
            `URL http://onlinelibrary.wiley.com/doi/10.1111/j.1096-3642.2009.00627.x/full`  
      `Citations 14`  
@@ -17,7 +17,7 @@ Ouput:
  `Versions list http://scholar.google.com/scholar?cluster=13407052944292989945&hl=en&num=1&as_sdt=0,5`  
           `Year 2011`   
 
-Grab the citations list page:  
+Grab the **Citations list** page:  
 `http://scholar.google.com/scholar?cites=13407052944292989945`
 
 And feed it to the script `scholar_cites.py`:
