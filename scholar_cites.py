@@ -57,6 +57,8 @@ def parse_link(link):
 	if matches:
 		doi = matches.groups()[0].strip();
 		doi = re.sub("\/full$", "", doi);
+		doi = re.sub("\/abstract$", "", doi);
+		doi = re.sub("\/summary$", "", doi);
 		print doi;
 
 
