@@ -3,7 +3,7 @@ google_scholar_parser
 
 Scripts to parse *"citations page"* of **Google Scholar**  
 
-Using [scholar.py](http://www.icir.org/christian/scholar.html) by [Christian Kreibich](http://www.icir.org/christian/scholar.html).  
+Using [scholar.py](http://www.icir.org/christian/scholar.html).  
 
 Get citations for a publication using its DOI:  
 `python scholar.py -c 1 10.1111/j.1096-3642.2009.00627.x`
