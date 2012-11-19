@@ -5,6 +5,16 @@ Scripts to parse *"citations page"* of **Google Scholar**
 
 Using [scholar.py](http://www.icir.org/christian/scholar.html).  
 
+Beware that Google might block you if you do too many requests in quick succession.   
+You might want to use **tor** or **random sleep** times. For example:
+
+```python
+import time;  
+random.seed();  
+n = random.random()*5;  
+time.sleep(n);  
+```  
+
 Get citations for a publication using its DOI:  
 `python scholar.py -c 1 10.1111/j.1096-3642.2009.00627.x`
 
