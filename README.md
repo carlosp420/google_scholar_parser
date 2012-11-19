@@ -20,13 +20,13 @@ Get citations for a publication using its DOI:
 
 Output:  
 ```bash 
-         Title The radiation of Satyrini butterflies (Nymphalidae: Satyrinae): a challenge for phylogenetic methods`  
-           `URL http://onlinelibrary.wiley.com/doi/10.1111/j.1096-3642.2009.00627.x/full`  
-     `Citations 14`  
-      `Versions 6`  
-`Citations list http://scholar.google.com/scholar?cites=13407052944292989945&as_sdt=2005&sciodt=0,5&hl=en&num=1`  
- `Versions list http://scholar.google.com/scholar?cluster=13407052944292989945&hl=en&num=1&as_sdt=0,5`  
-          `Year 2011`   
+         Title The radiation of Satyrini butterflies (Nymphalidae: Satyrinae)...     
+           URL http://onlinelibrary.wiley.com/doi/10.1111/j.1096-3642.2009.00627.x/full  
+     Citations 14  
+      Versions 6  
+Citations list http://scholar.google.com/scholar?cites=13407052944292989945&as_sdt=2005&sciodt=0,5&hl=en&num=1  
+ Versions list http://scholar.google.com/scholar?cluster=13407052944292989945&hl=en&num=1&as_sdt=0,5  
+          Year 2011   
 ```
 
 Grab the **Citations list** page:  
