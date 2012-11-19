@@ -36,7 +36,9 @@ And feed it to the script `scholar_cites.py`:
 `python scholar_cites.py http://scholar.google.com/scholar?cites=13407052944292989945`
 
 So you will get all the DOIs of publications citing your article (up to 100 DOIs):  
-`10.1111/j.1463-6409.2010.00421.x`  
-`10.1146/annurev-ecolsys-102710-145024`  
-`10.1111/j.1420-9101.2011.02352.x`  
-`10.1111/j.1439-0469.2010.00587.x`
+```bash
+10.1111/j.1463-6409.2010.00421.x  
+10.1146/annurev-ecolsys-102710-145024  
+10.1111/j.1420-9101.2011.02352.x  
+10.1111/j.1439-0469.2010.00587.x
+```
