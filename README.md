@@ -42,3 +42,10 @@ So you will get all the DOIs of publications citing your article (up to 100 DOIs
 10.1111/j.1420-9101.2011.02352.x  
 10.1111/j.1439-0469.2010.00587.x
 ```
+### ChangeLog
+* 2013-03-02:
+	* Parsing up to 100 citations by parsing several GS page results.
+	* Retrieving DOIs from HTML links to several repositories.
+	* Retrieving PDF link for Zootaxa papers.
+	* Note when it was not possible to extract a DOI from link.
+
