@@ -113,7 +113,7 @@ def parse_scielo(link):
     :return: DOI or other identifier. eg. doi: 10.10....
     """
     UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link, headers={'User-Agent':UA})
+    req = urllib2.Request(url=link, headers={'User-Agent': UA})
     f = urllib2.urlopen(req)
     html_doc = f.read()
     soup = BeautifulSoup(html_doc)
@@ -135,7 +135,7 @@ def parse_springerlink_pdf(link):
     :return: DOI or other identifier. eg. doi: 10.10....
     """
     UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link, headers={'User-Agent':UA})
+    req = urllib2.Request(url=link, headers={'User-Agent': UA})
     f = urllib2.urlopen(req)
     html_doc = f.read()
     soup = BeautifulSoup(html_doc)
@@ -156,15 +156,14 @@ def parse_biomedcentral(link):
     :return: DOI or other identifier. eg. doi: 10.10....
     """
     if "pdf" in link:
-        #http://www.biomedcentral.com/content/pdf/1471-2148-12-82.pdf
-        #http://www.biomedcentral.com/1471-2148/12/82
+        # http://www.biomedcentral.com/content/pdf/1471-2148-12-82.pdf
+        # http://www.biomedcentral.com/1471-2148/12/82
         link = re.sub("content\/pdf\/", "", link)
         link = re.sub("\.pdf$", "", link)
         link = re.sub("-(\d+)-(\d+)$", "/\\1/\\2", link)
 
     UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link,
-                    headers={'User-Agent':UA})
+    req = urllib2.Request(url=link, headers={'User-Agent': UA})
     f = urllib2.urlopen(req)
     html_doc = f.read()
     soup = BeautifulSoup(html_doc)
@@ -186,7 +185,7 @@ def parse_sciencedirect(link):
     """
     if "pdf" not in link:
         UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-        req = urllib2.Request(url=link, headers={'User-Agent':UA})
+        req = urllib2.Request(url=link, headers={'User-Agent': UA})
         f = urllib2.urlopen(req)
         html_doc = f.read()
         soup = BeautifulSoup(html_doc)
@@ -210,7 +209,7 @@ def parse_rspb(link):
     """
     if "pdf" not in link:
         UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-        req = urllib2.Request(url=link, headers={'User-Agent':UA})
+        req = urllib2.Request(url=link, headers={'User-Agent': UA})
         f = urllib2.urlopen(req)
         html_doc = f.read()
         soup = BeautifulSoup(html_doc)
@@ -245,7 +244,7 @@ def get_citing_dois(cites_url):
     cites_url += "&num=20"
     UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
 
-    req = urllib2.Request(url=cites_url, headers={'User-Agent':UA})
+    req = urllib2.Request(url=cites_url, headers={'User-Agent': UA})
     f = urllib2.urlopen(req)
     html_doc = f.read()
     soup = BeautifulSoup(html_doc)
@@ -265,7 +264,7 @@ def get_citing_dois(cites_url):
             index = index + 20
             hits = hits - 20
 
-            req = urllib2.Request(url=url, headers={'User-Agent':UA})
+            req = urllib2.Request(url=url, headers={'User-Agent': UA})
             f = urllib2.urlopen(req)
             html_doc = f.read()
             soup = BeautifulSoup(html_doc)
@@ -276,7 +275,7 @@ def get_citing_dois(cites_url):
 
     else:
         # just do 20 records
-        req = urllib2.Request(url=cites_url, headers={'User-Agent':UA})
+        req = urllib2.Request(url=cites_url, headers={'User-Agent': UA})
         f = urllib2.urlopen(req)
         html_doc = f.read()
         soup = BeautifulSoup(html_doc)
