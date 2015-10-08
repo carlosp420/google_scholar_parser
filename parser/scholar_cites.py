@@ -229,18 +229,20 @@ def get_total_hits(soup):
 def get_citing_dois(cites_url):
     """
     :param cites_url:  a citation url from GoogleScholar
-    :return: a list of dois extracted from URLs by following the links
+    :return:           a list of DOIs extracted from URLs by following the links
     """
     n = random.random() * 5
     time.sleep(n)
     print("Sleeping: {0} seconds".format(n))
 
+    # GS seems to allow only 20 hits per page!
     cites_url += "&num=20"
     req = requests.get(cites_url, headers={'User-Agent': UA})
     html_doc = req.text
     soup = BeautifulSoup(html_doc)
-    # GS seems to allow only 20 hits per page!
     hits = get_total_hits(soup)
+    print("Got a total of {0} hits".format(hits))
+
     if hits:
         hits = int(hits)
         index = 0
