@@ -2,7 +2,7 @@
 
 Scripts to parse *"citations page"* of **Google Scholar**  
 
-Using [scholar.py](http://www.icir.org/christian/scholar.html) v1.5.  
+Using [scholar.py](https://github.com/ckreibich/scholar.py) v1.5.  
 
 ## Requirements
 It runs in Python2.7 and requires the library BeautifulSoup (version3).
