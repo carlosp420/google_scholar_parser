@@ -1,9 +1,13 @@
-import urllib2
 import re
 import sys
 import time
 import random
+
 from BeautifulSoup import BeautifulSoup
+import requests
+
+
+UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
 
 
 def parse_soup_page(soup):
@@ -112,10 +116,8 @@ def parse_scielo(link):
     :param link: string URL from springerlink ending with "pdf"
     :return: DOI or other identifier. eg. doi: 10.10....
     """
-    UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link, headers={'User-Agent': UA})
-    f = urllib2.urlopen(req)
-    html_doc = f.read()
+    req = requests.get(link, headers={'User-Agent': UA})
+    html_doc = req.text
     soup = BeautifulSoup(html_doc)
 
     try:
@@ -134,10 +136,8 @@ def parse_springerlink_pdf(link):
     :param link: string URL from springerlink ending with "pdf"
     :return: DOI or other identifier. eg. doi: 10.10....
     """
-    UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link, headers={'User-Agent': UA})
-    f = urllib2.urlopen(req)
-    html_doc = f.read()
+    req = requests.get(link, headers={'User-Agent': UA})
+    html_doc = req.text
     soup = BeautifulSoup(html_doc)
 
     for meta in soup.findAll("meta"):
@@ -162,10 +162,8 @@ def parse_biomedcentral(link):
         link = re.sub("\.pdf$", "", link)
         link = re.sub("-(\d+)-(\d+)$", "/\\1/\\2", link)
 
-    UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-    req = urllib2.Request(url=link, headers={'User-Agent': UA})
-    f = urllib2.urlopen(req)
-    html_doc = f.read()
+    req = requests.get(link, headers={'User-Agent': UA})
+    html_doc = req.text
     soup = BeautifulSoup(html_doc)
 
     for meta in soup.findAll("meta"):
@@ -184,10 +182,8 @@ def parse_sciencedirect(link):
     :return: DOI or other identifier. eg. doi: 10.10....
     """
     if "pdf" not in link:
-        UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-        req = urllib2.Request(url=link, headers={'User-Agent': UA})
-        f = urllib2.urlopen(req)
-        html_doc = f.read()
+        req = requests.get(url=link, headers={'User-Agent': UA})
+        html_doc = req.text
         soup = BeautifulSoup(html_doc)
 
         tag = soup.find('a',   attrs={'id': 'ddDoi'})
@@ -208,10 +204,8 @@ def parse_rspb(link):
     :return: DOI or other identifier. eg. doi: 10.10....
     """
     if "pdf" not in link:
-        UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-        req = urllib2.Request(url=link, headers={'User-Agent': UA})
-        f = urllib2.urlopen(req)
-        html_doc = f.read()
+        req = requests.get(link, headers={'User-Agent': UA})
+        html_doc = req.text
         soup = BeautifulSoup(html_doc)
 
         for meta in soup.findAll("meta"):
@@ -237,16 +231,13 @@ def get_citing_dois(cites_url):
     :param cites_url:  a citation url from GoogleScholar
     :return: a list of dois extracted from URLs by following the links
     """
-    n = random.random()*5
+    n = random.random() * 5
     time.sleep(n)
     print("Sleeping: {0} seconds".format(n))
 
     cites_url += "&num=20"
-    UA = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
-
-    req = urllib2.Request(url=cites_url, headers={'User-Agent': UA})
-    f = urllib2.urlopen(req)
-    html_doc = f.read()
+    req = requests.get(cites_url, headers={'User-Agent': UA})
+    html_doc = req.text
     soup = BeautifulSoup(html_doc)
     # GS seems to allow only 20 hits per page!
     hits = get_total_hits(soup)
@@ -264,9 +255,8 @@ def get_citing_dois(cites_url):
             index = index + 20
             hits = hits - 20
 
-            req = urllib2.Request(url=url, headers={'User-Agent': UA})
-            f = urllib2.urlopen(req)
-            html_doc = f.read()
+            req = requests.get(url, headers={'User-Agent': UA})
+            html_doc = req.text
             soup = BeautifulSoup(html_doc)
             links = parse_soup_page(soup)
             for i in links:
@@ -275,9 +265,8 @@ def get_citing_dois(cites_url):
 
     else:
         # just do 20 records
-        req = urllib2.Request(url=cites_url, headers={'User-Agent': UA})
-        f = urllib2.urlopen(req)
-        html_doc = f.read()
+        req = requests.get(cites_url, headers={'User-Agent': UA})
+        html_doc = req.text
         soup = BeautifulSoup(html_doc)
         return parse_soup_page(soup)
 
@@ -288,10 +277,7 @@ def main():
     if len(sys.argv) < 2:
         print("Enter as argument a google scholar citation link")
         print("Example: http://scholar.google.com/scholar?oi=bibs&hl=en&cites=108642523785399070")
-        sys.exit()
-
-    # example URL
-    # url = "http://scholar.google.com/scholar?oi=bibs&hl=en&cites=108642523785399070"
+        sys.exit(1)
 
     cites_url = sys.argv[1].strip()
     get_citing_dois(cites_url)
