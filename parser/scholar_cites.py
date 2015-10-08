@@ -254,8 +254,8 @@ def get_citing_dois(cites_url):
                 url = cites_url + "&start=" + str(index)
             else:
                 url = cites_url
-            index = index + 20
-            hits = hits - 20
+            index += 20
+            hits -= 20
 
             req = requests.get(url, headers={'User-Agent': UA})
             html_doc = req.text
